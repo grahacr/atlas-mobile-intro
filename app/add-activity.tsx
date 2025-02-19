@@ -5,7 +5,8 @@ export default function addActivity() {
   return (
     <View style={styles.container}>
     <Pressable style={styles.addLink}>
-        Add Activity
+    <Text>Add Activity</Text>
+        
     </Pressable>
       <Link href="/" replace style={styles.goHomeLink}>
       <Text style={styles.goHomeText}>Go Back</Text>
