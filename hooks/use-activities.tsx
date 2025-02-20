@@ -2,7 +2,7 @@
 import { useSQLiteContext } from "expo-sqlite";
 import { useState, useEffect } from "react";
 
-type Activity = {
+export type Activity = {
     id: number;
     steps: number;
     date: number;
@@ -22,6 +22,7 @@ export function useActivities() {
 
     function reLoad() {
         const data = getActivities();
+        console.log("activities loaded:", data);
         setActivities(data);
     }
 
