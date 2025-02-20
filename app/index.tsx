@@ -49,31 +49,35 @@ const styles = StyleSheet.create({
     list: {
       flex: 1,
       width: "100%",
-      paddingHorizontal: 10,
+      padding: 8,
+      marginTop: 8,
+    },
+    listStyle: {
+      padding: 8,
     },
     buttonContainer: {
       width: "100%",
-      alignItems: "center",
       marginTop: 5,
       paddingBottom: 40,
     },
     link: {
       backgroundColor: "#1ED2AF",
-      width: "50%",
+      width: "100%",
       textAlign: "center",
-      padding: 10,
+      padding: 18,
     },
     linkText: {
-      justifyContent: "center"
+      justifyContent: "center",
+      color: "#fff",
+      textAlign: "center",
+      padding: 9,
     },
     deleteButton: {
       backgroundColor: "#D00414",
-      width: "50%",
-      textAlign: "center",
-      padding: 10,
+      width: "100%",
+      padding: 9,
     },
     noActivities: {
       fontSize: 18,
-      textAlign: "center",
     },
 })

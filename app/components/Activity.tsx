@@ -21,26 +21,25 @@ export default function ActivityComponent({ activity }: { activity: Activity}) {
 const styles = StyleSheet.create({
     activityBox: {
         width: "100%",
-        borderWidth: 2,
+        borderWidth: 3,
         borderColor: "#888",
         marginBottom: 2,
-        padding: 5,
+        padding: 8,
       },
       activityDateContainer: {
         flexDirection: "row",
       },
       activityDate: {
-        fontSize: 5,
+        fontSize: 10,
         color: "#888",
       },
   
       activityTime: {
-        fontSize: 5,
+        fontSize: 10,
         color: "#888",
       },
       stepsNumber: {
-        fontSize: 10,
-        fontWeight: "bold",
+        fontSize: 16,
         padding: 2,
       }
 })

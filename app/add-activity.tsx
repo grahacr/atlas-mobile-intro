@@ -13,6 +13,7 @@ export default function addActivity() {
       <TextInput
       style={styles.textInput}
       placeholder="Enter steps"
+      placeholderTextColor="#888"
       keyboardType="number-pad"
       onChangeText={(value) => setSteps(parseInt(value))} />
 
@@ -37,26 +38,27 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 20,
+        backgroundColor: "#FEF9E6"
     },
     headerText: {
       fontSize: 24,
       fontWeight: "bold",
-      marginBottom: 30,
+      marginBottom: 15,
     },
 
     textInput: {
       width: "100%",
       height: 50,
-      borderColor: "00000",
-      borderWidth: 3,
-      paddingHorizontal: 10,
+      borderColor: "#000000",
+      borderWidth: 4,
+      padding: 10,
       marginBottom: 20,
+      color: "#000",
     },
 
     addLink: {
       backgroundColor: "#1ED2AF",
       width: "100%",
-      marginBottom: 10,
       alignItems: "center",
       padding: 15,
     },
@@ -70,6 +72,7 @@ const styles = StyleSheet.create({
       padding: 20,
     },
     goHomeText: {
+      color: "#fff",
       justifyContent: "center",
       alignSelf: "center",
     },
