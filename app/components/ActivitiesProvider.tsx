@@ -6,11 +6,12 @@ const ActivitiesContext = createContext<ReturnType<typeof useActivities>>({
     getActivities: () => [],
     insertActivity: () => {},
     deleteActivities: () => [],
+    deleteActivity: () => [],
 });
 
 export const useActivitiesContext = () => useContext(ActivitiesContext);
 
-export function ActivitiesProvider({ children }: { children: React.ReactNode}) {
+export default function ActivitiesProvider({ children }: { children: React.ReactNode}) {
     const activities = useActivities();
     return (
     <ActivitiesContext.Provider value={activities}>

@@ -1,4 +1,5 @@
 
+import { reload } from "expo-router/build/global-state/routing";
 import { useSQLiteContext } from "expo-sqlite";
 import { useState, useEffect } from "react";
 import { Alert } from "react-native";
@@ -26,6 +27,10 @@ export function useActivities() {
         reLoad();
     }
 
+    function deleteActivity(id: number) {
+        db.execSync(`DELETE FROM activities WHERE id IS ${id}`);
+        reLoad();
+    }
     function reLoad() {
         const data = getActivities();
         console.log("activities loaded:", data);
@@ -36,5 +41,5 @@ export function useActivities() {
         reLoad();
     }, []);
 
-    return { getActivities, activities, insertActivity, deleteActivities };
+    return { getActivities, activities, insertActivity, deleteActivities, deleteActivity };
 }

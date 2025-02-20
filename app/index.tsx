@@ -12,6 +12,7 @@ export default function Index() {
     deleteActivities();
   };
 
+
   return (
     <View style={styles.container}>
       <View style={styles.list}>
