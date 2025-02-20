@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         width: "100%",
         borderWidth: 2,
         borderColor: "#888",
-        margin: 3,
+        marginBottom: 2,
+        padding: 5,
       },
       activityDateContainer: {
         flexDirection: "row",

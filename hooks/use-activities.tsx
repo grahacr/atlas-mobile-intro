@@ -1,6 +1,7 @@
 
 import { useSQLiteContext } from "expo-sqlite";
 import { useState, useEffect } from "react";
+import { Alert } from "react-native";
 
 export type Activity = {
     id: number;
@@ -20,6 +21,11 @@ export function useActivities() {
         reLoad();
     }
 
+    function deleteActivities() {
+        db.execSync("DELETE FROM activities");
+        reLoad();
+    }
+
     function reLoad() {
         const data = getActivities();
         console.log("activities loaded:", data);
@@ -30,5 +36,5 @@ export function useActivities() {
         reLoad();
     }, []);
 
-    return { getActivities, activities, insertActivity };
+    return { getActivities, activities, insertActivity, deleteActivities };
 }

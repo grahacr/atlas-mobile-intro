@@ -1,24 +1,40 @@
 
 import { useActivities } from "@/hooks/use-activities";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { Link } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
 import Activity from "./components/Activity";
 
 export default function Index() {
-  const {activities} = useActivities();
+  const { activities, deleteActivities } = useActivities();
+
+  const handleDeleteAll = () => {
+    deleteActivities();
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.list}>
-      <FlashList
-        renderItem={({ item }) => <Activity activity={item} /> }
-        data={activities}
-        estimatedItemSize={70}
-        />
+        {activities.length > 0 ? (
+          <FlashList
+            renderItem={({ item }) => <Activity activity={item} />}
+            data={activities}
+            estimatedItemSize={70}
+            />
+        ) : (
+          <Text style={styles.noActivities}>Activities cleared</Text>
+        )}
         </View>
-        <Link href="/add-activity" replace style={styles.link}>
-          <Text style={styles.linkText}>Add Activity</Text>
-        </Link>
+
+        <View style={styles.buttonContainer}>
+          <Link href="/add-activity" replace style={styles.link}>
+            <Text style={styles.linkText}>Add Activity</Text>
+          </Link>
+
+          <Pressable onPress={handleDeleteAll} style={styles.deleteButton}>
+            <Text style={styles.linkText}>Delete All Activities</Text>
+          </Pressable>
+        </View>
     </View>
   );
 }
@@ -26,13 +42,20 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-        justifyContent: "flex-start",
-        alignItems: "center",
-        backgroundColor: "#FEF9E6"
+      justifyContent: "flex-start",
+      alignItems: "center",
+      backgroundColor: "#FEF9E6"
     },
     list: {
       flex: 1,
       width: "100%",
+      paddingHorizontal: 10,
+    },
+    buttonContainer: {
+      width: "100%",
+      alignItems: "center",
+      marginTop: 5,
+      paddingBottom: 40,
     },
     link: {
       backgroundColor: "#1ED2AF",
@@ -42,5 +65,15 @@ const styles = StyleSheet.create({
     },
     linkText: {
       justifyContent: "center"
+    },
+    deleteButton: {
+      backgroundColor: "#D00414",
+      width: "50%",
+      textAlign: "center",
+      padding: 10,
+    },
+    noActivities: {
+      fontSize: 18,
+      textAlign: "center",
     },
 })
