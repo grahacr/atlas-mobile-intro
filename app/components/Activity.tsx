@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Activity } from "@/hooks/use-activities";
 import Swipeable from "react-native-gesture-handler/ReanimatedSwipeable";
-import { useActivities } from "@/hooks/use-activities";
 
-export default function ActivityComponent({ activity }: { activity: Activity}) {
-  const { deleteActivity } = useActivities();
+type ActivityProps = {
+  activity: Activity;
+  deleteActivity: (id: number) => void;
+};
+
+export default function ActivityComponent({ activity, deleteActivity }: ActivityProps) {
 
     // action button for handling swipeable options, left or right
     const Action = ({ text, onPress }: { text: string, onPress: () => void }) => (

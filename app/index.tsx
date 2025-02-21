@@ -6,7 +6,7 @@ import { FlashList } from "@shopify/flash-list";
 import Activity from "./components/Activity";
 
 export default function Index() {
-  const { activities, deleteActivities } = useActivities();
+  const { activities, deleteActivities, deleteActivity } = useActivities();
 
   const handleDeleteAll = () => {
     deleteActivities();
@@ -18,7 +18,7 @@ export default function Index() {
       <View style={styles.list}>
         {activities.length > 0 ? (
           <FlashList
-            renderItem={({ item }) => <Activity activity={item} />}
+            renderItem={({ item }) => <Activity activity={item} deleteActivity={deleteActivity}/>}
             data={activities}
             estimatedItemSize={70}
             />
